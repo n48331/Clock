@@ -1,0 +1,51 @@
+
+
+.clock {
+    --hour-hand-degrees: 0deg;
+    --minute-hand-degrees: 0deg;
+
+    --second-hand-degrees: 0deg;
+    --start: 0deg;
+    --end: 0deg;
+    position: fixed;
+    background: conic-gradient(
+      from var(--start),
+      rgb(255, 255, 255) 2deg,
+      rgb(40, 160, 167) var(--end),
+      rgb(18, 130, 170) 2deg,
+      #53d2a5
+    );
+  }
+  
+  .hand {
+    position: absolute;
+  }
+  @property --a {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 10deg;
+  }
+  
+  .seconds {
+    opacity: .2;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+      background: conic-gradient(from var(--a), rgb(17, 0, 255),cadetblue);
+    animation: rotate 60s linear infinite;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  @keyframes rotate {
+    0% {
+      --a: 0deg;
+    }
+  
+    100% {
+      --a: 360deg;
+    }
+  }
+  
+  
